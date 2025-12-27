@@ -55,7 +55,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
       {/* Subtotal & Remove */}
       <div className="flex flex-col items-end gap-2">
         <span className="font-bold text-foreground">
-          ${(item.price * item.quantity).toFixed(2)}
+          ${(Number(item.price) * item.quantity).toFixed(2)}
         </span>
         <Button
           variant="ghost"

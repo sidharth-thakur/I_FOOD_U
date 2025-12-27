@@ -9,5 +9,9 @@ from .serializers import FoodSerializer
 @permission_classes([AllowAny])
 def food_list(request):
     foods = Food.objects.all()
-    serializer = FoodSerializer(foods, many=True)
+    serializer = FoodSerializer(
+        foods,
+        many=True,
+        context={'request': request}  # 🔥 THIS LINE FIXES IMAGES
+    )
     return Response(serializer.data)

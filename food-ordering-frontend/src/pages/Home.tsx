@@ -12,7 +12,8 @@ import Autoplay from 'embla-carousel-autoplay';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FoodCard from '@/components/FoodCard';
-import { categories, foodItems } from '@/data/foodItems';
+import { categories } from '@/data/foodItems';
+import { useFoods } from '@/hooks/useFoods';
 
 const heroImages = [
   {
@@ -34,7 +35,8 @@ const heroImages = [
 ];
 
 const Home: React.FC = () => {
-  const featuredItems = foodItems.slice(0, 4);
+  const { foods } = useFoods();
+const featuredItems = foods.slice(0, 4);
   
   const autoplayPlugin = React.useRef(
     Autoplay({ delay: 4000, stopOnInteraction: false })
